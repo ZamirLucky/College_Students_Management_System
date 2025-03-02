@@ -1,0 +1,32 @@
+$college1 = College::create([
+    'name'=>'Paola Campus',
+    'address'=>'Main Campus, Triq Kordin, Paola PLA 9032',
+]);
+$college2 = College::create([
+    'name'=>'Gozo Campus',
+    'address'=>'Triq L-Imġarr, Ix-Xewkija',
+]);
+
+// Retrieve the existing college
+$college1 = College::where('name', 'Paola Campus')->first();
+
+$student1 = new Student([
+    'name'=>'Abdirizak Hassan',
+    'email'=>'abdirizakHassan@mcast.com',
+    'phone'=>'99882211',
+    'dob'=>'1996-10-07',
+]);
+
+// Retrieve the existing college
+$college2 = College::where('name', 'Gozo Campus')->first();
+
+$student2 = new Student([
+    'name'=>'Clayton Galea',
+    'email'=>'clayton@mcast.com',
+    'phone'=>'99884411',
+    'dob'=>'2001-02-20',
+]);
+
+// Save the student with the correct college foreign key
+$college2->students()->save($student2);
+
