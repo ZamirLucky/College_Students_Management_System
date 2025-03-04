@@ -20,13 +20,13 @@ Route::get('/', function () {
 });
 
 // route that will return a list of students
-Route::get('/students', [ContactController::class, 'index'])->name('students.index');
+Route::get('/', [StudentController::class, 'index'])->name('students.index');
 
 // route that will allow a user to create a new student
-Route::get('/students/create', [ContactController::class, 'create'])->name('students.create');
+Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');
 
 // route that will store the details of the new student
-Route::post('/students', [ContactController::class, 'store'])->name('students.store');
+Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
 // route that will show the contents of a specific student
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
