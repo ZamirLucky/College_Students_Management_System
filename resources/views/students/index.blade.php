@@ -12,7 +12,7 @@
                 <div class="d-flex align-items-center">
                   <h2 class="mb-0">All Students</h2>
                   <div class="ml-auto">
-                    <a href="form.html" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
+                    <a href="{{ route('students.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
                   </div>
                 </div>
               </div>
@@ -71,6 +71,6 @@
         </div>
       </div>
     </div>
-  </main>
+</main>
 
 @endsection

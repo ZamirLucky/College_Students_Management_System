@@ -13,7 +13,7 @@ class StudentController extends Controller
      * Show the details for all students.
      */
     public function index() {
-        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Compuses', '');
+        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Compuses', ''); // Fetch colleges
 
         if (request('college_id') == null) {
             $students = Student::all();
@@ -36,8 +36,8 @@ class StudentController extends Controller
      * create a new student
      */
     public function create() {
-        $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Compuses', '');
-        return view('students.create', compact('colleges'));
+        $colleges = College::orderBy('name')->pluck('name', 'id'); // Fetch colleges
+        return view('students.create', compact('colleges')); // Pass to view
     }
 
     /**
