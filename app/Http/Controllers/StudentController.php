@@ -34,7 +34,7 @@ class StudentController extends Controller
 
     /**
      * create a new student
-     */
+    */
     public function create() {
         $colleges = College::orderBy('name')->pluck('name', 'id'); // Fetch colleges
         return view('students.create', compact('colleges')); // Pass to view
@@ -51,7 +51,15 @@ class StudentController extends Controller
             'phone' => 'required|string|regex:/^[0-9]{8}$/',
             'dob'=> 'required|date|before:-15 years',
             'college_id' => 'required|exists:colleges,id'
+        ],
+        [
+            'dob.before' => 'The date of birth must be at least 15 years ago.',
+            'phone.regex' => 'The phone number must be exactly 8 digits.'
         ]);
+
+        //dd($request->all());
+        // $requestData = $request->all();
+        // $requestData['dob'] = Carbon::parse($request->dob)->format('Y-m-d');
 
         Student::create($request->all());
         return redirect()->route('students.index')->with('message', 'Student has been created successfully');

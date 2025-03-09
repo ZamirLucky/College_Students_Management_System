@@ -52,7 +52,7 @@
                                 <td>{{ $student->name }}</td>
                                 <td>{{ $student->email }}</td>
                                 <td>{{ $student->phone }}</td>
-                                <td>{{ $student->dob }}</td>
+                                <td>{{ $student->dob->format('d/m/Y') }}</td>
                                 <td>{{ $student->college->name }}</td>
                                 <td width="150">
                                 <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
