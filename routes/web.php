@@ -16,11 +16,11 @@ use App\Http\Controllers\StudentController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('students.index');
 });
 
 // route that will return a list of students
-Route::get('/', [StudentController::class, 'index'])->name('students.index');
+Route::get('/students', [StudentController::class, 'index'])->name('students.index');
 
 // route that will allow a user to create a new student
 Route::get('/students/create', [StudentController::class, 'create'])->name('students.create');

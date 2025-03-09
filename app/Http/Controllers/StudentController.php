@@ -15,11 +15,23 @@ class StudentController extends Controller
     public function index() {
         $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Compuses', ''); // Fetch colleges
 
-        if (request('college_id') == null) {
-            $students = Student::all();
-        } else {
-            $students = Student::where('college_id', request('college_id'))->get();
+        // Start a query builder for students
+        $students = Student::query();
+
+        // Apply college filter if selected
+        if (request()->has('college_id') && request('college_id') !== null) {
+            $students->where('college_id', request('college_id'));
         }
+ 
+        // Apply sorting
+        if (request('sort') == 'name_asc'){
+            $students->orderBy('name', 'asc');
+        }elseif (request('sort') == 'name_desc'){
+            $students->orderBy('name', 'desc');
+        }
+
+        // Get the final list of students
+        $students = $students->get();
 
         return view('students.index', compact('students', 'colleges'));
     }

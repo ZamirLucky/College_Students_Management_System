@@ -22,13 +22,13 @@
                   <!-- Sorting Dropdown -->
                   <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown">
-                      Sort By
+                        Sort By
                     </button>
                     <div class="dropdown-menu">
-                      <a class="dropdown-item" href="?sort=first_name">Name</a>
-                      <a class="dropdown-item" href="?sort=college">College</a>
+                        <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['sort' => 'name_asc']) }}">Name (A-Z)</a>
+                        <a class="dropdown-item" href="{{ request()->fullUrlWithQuery(['sort' => 'name_desc']) }}">Name (Z-A)</a>
                     </div>
-                  </div>
+                  </div>                
                 </div>
                 @include('students._filter')
               </div>
