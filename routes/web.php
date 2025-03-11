@@ -30,3 +30,9 @@ Route::post('/students', [StudentController::class, 'store'])->name('students.st
 
 // route that will show the contents of a specific student
 Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
+
+// route that will displays the edit form
+Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');
+
+// route that will processes the form submission
+Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
