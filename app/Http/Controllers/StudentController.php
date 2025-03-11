@@ -38,9 +38,9 @@ class StudentController extends Controller
     /**
      * Show the details for a specific student.
      */
-    public function show($id)
+    public function show(Student $student)
     {
-        $student = Student::find($id);
+        // $student = Student::find($id);
         return view('students.show', compact('student'));
     }
 

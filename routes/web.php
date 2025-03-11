@@ -29,7 +29,7 @@ Route::get('/students/create', [StudentController::class, 'create'])->name('stud
 Route::post('/students', [StudentController::class, 'store'])->name('students.store');
 
 // route that will show the contents of a specific student
-Route::get('/students/{id}', [StudentController::class, 'show'])->name('students.show');
+Route::get('/students/{student}', [StudentController::class, 'show'])->name('students.show');
 
 // route that will displays the edit form
 Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name('students.edit');

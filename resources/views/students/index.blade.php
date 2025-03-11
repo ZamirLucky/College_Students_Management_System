@@ -40,6 +40,8 @@
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                     <th scope="col">DOB</th>
+                    <th scope="col">Created_at</th>
+                    <th scope="col">Updated_at</th>
                     <th scope="col">College</th>
                     <th scope="col">Actions</th>
                   </tr>
@@ -53,9 +55,11 @@
                                 <td>{{ $student->email }}</td>
                                 <td>{{ $student->phone }}</td>
                                 <td>{{ $student->dob->format('d/m/Y') }}</td>
+                                <td>{{ $student->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $student->updated_at->format('d/m/Y') }}</td>
                                 <td>{{ $student->college->name }}</td>
                                 <td width="150">
-                                <a href="show.html" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                                <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                                 <a href="#" class="btn btn-sm btn-circle btn-outline-danger" title="Delete" onclick="confirm('Are you sure?')"><i class="fa fa-times"></i></a>
                                 </td>
