@@ -36,3 +36,6 @@ Route::get('/students/{student}/edit', [StudentController::class, 'edit'])->name
 
 // route that will processes the form submission
 Route::put('/students/{student}', [StudentController::class, 'update'])->name('students.update');
+
+// route that will delete a student
+Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
