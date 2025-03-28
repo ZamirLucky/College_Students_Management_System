@@ -39,3 +39,6 @@ Route::put('/students/{student}', [StudentController::class, 'update'])->name('s
 
 // route that will delete a student
 Route::delete('/students/{student}', [StudentController::class, 'destroy'])->name('students.destroy');
+
+// route that will return a list of colleges
+Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.index');
