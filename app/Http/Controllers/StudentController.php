@@ -11,7 +11,7 @@ class StudentController extends Controller
 {
     /**
      * Show the details for all students.
-     */
+    */
     public function index() {
         $colleges = College::orderBy('name')->pluck('name', 'id')->prepend('All Compuses', ''); // Fetch colleges
 

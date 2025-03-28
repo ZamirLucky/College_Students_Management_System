@@ -30,7 +30,7 @@
                 </thead>
                 <tbody>
                     @if ($colleges->count())
-                        @foreach ($colleges as $index => $colleges )
+                        @foreach ($colleges as $college )
                             <tr>
                                 <th scope="row">{{ $college->id }}</th>
                                 <td>{{ $college->name }}</td>
@@ -40,7 +40,7 @@
                                 <a href="" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                                 </td>
                             </tr>
-                        @endfor
+                        @endforeach
                     @endif
                 </tbody>
               </table> 
