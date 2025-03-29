@@ -12,7 +12,7 @@
                 <div class="d-flex align-items-center">
                   <h2 class="mb-0">All Colleges</h2>
                   <div class="ml-auto">
-                    <a href="" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New College</a>
+                    <a href="{{ route('colleges.create') }}" class="btn btn-success"><i class="fa fa-plus-circle"></i> Add New</a>
                   </div>
                 </div>
               </div>
@@ -26,6 +26,7 @@
                     <th scope="col">Name</th>
                     <th scope="col">Address</th>
                     <th scope="col">Created_at</th>
+                    <th scope="col">Updated_at</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -36,6 +37,7 @@
                                 <td>{{ $college->name }}</td>
                                 <td>{{ $college->address }}</td>
                                 <td>{{ $college->created_at->format('d/m/Y') }}</td>
+                                <td>{{ $college->updated_at->format('d/m/Y') }}</td>
                                 <td width="150">
                                 <a href="" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                                 </td>

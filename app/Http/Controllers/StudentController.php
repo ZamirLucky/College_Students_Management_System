@@ -69,10 +69,7 @@ class StudentController extends Controller
             'phone.regex' => 'The phone number must be exactly 8 digits.'
         ]);
 
-        //dd($request->all());
-        // $requestData = $request->all();
-        // $requestData['dob'] = Carbon::parse($request->dob)->format('Y-m-d');
-
+        
         Student::create($request->all());
         return redirect()->route('students.index')->with('message', 'Student has been created successfully');
     }

@@ -45,3 +45,6 @@ Route::get('/colleges', [CollegeController::class, 'index'])->name('colleges.ind
 
 // route that will allow a user to create a new college
 Route::get('/colleges/create', [CollegeController::class, 'create'])->name('colleges.create');
+
+// Route that will store the details of the new college
+Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.store');
