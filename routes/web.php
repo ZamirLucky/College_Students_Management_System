@@ -51,3 +51,9 @@ Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.st
 
 // Route that will delete a student 
 Route::delete('/colleges/{college}', [CollegeController::class, 'destroy'])->name('colleges.destroy');
+
+// Route that will willshow the edit college form
+Route::get('/colleges/{college}/edit', [CollegeController::class, 'edit'])->name('colleges.edit');
+
+// Route that will process the update form
+Route::put('colleges/{college}', [CollegeController::class, 'update'])->name('colleges.update');

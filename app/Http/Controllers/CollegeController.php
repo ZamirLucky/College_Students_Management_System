@@ -42,4 +42,24 @@ class CollegeController extends Controller
         $college->delete();
         return redirect()->route('colleges.index')->with('message', 'College deleted successfully!');
     }
+
+    /**
+     * display edit form
+    */
+    public function edit(College $college){
+        return view('colleges.edit', Compact('college')); // pass to view
+    }
+
+    /*
+     * process the update form
+    */
+    public function update(College $college, Request $request){
+        $request->validate([
+            'name' => 'required|string|unique:colleges,name',
+            'address' => 'required|string',
+        ]);
+
+        $college->update($request->all());
+        return redirect()->route('colleges.index')->with('message', 'College updated succesfully');
+    }
 }

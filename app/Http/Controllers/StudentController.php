@@ -49,7 +49,8 @@ class StudentController extends Controller
     */
     public function create() {
         $colleges = College::orderBy('name')->pluck('name', 'id'); // Fetch colleges
-        return view('students.create', compact('colleges')); // Pass to view
+        $student = new Student();
+        return view('students.create', compact('colleges', 'student')); // Pass to view
     }
 
     /**
