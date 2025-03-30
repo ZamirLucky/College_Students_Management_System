@@ -61,15 +61,12 @@
                                 <td width="150">
                                 <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-id="{{ $student->id }}"><i class="fa fa-times"></i></a>
+                                <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-type="student" data-id="{{ $student->id }}"><i class="fa fa-times"></i></a>
                                 </td>
                             </tr>
                         @endforeach
                         <!-- Hidden form for deletion -->
-                        <form id="form-delete-student" method="POST" style="display: none;">
-                          @csrf
-                          @method('DELETE')
-                        </form>
+                        @include('partial._delete-form')
                     @endif
                 </tbody>
               </table> 

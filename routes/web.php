@@ -48,3 +48,6 @@ Route::get('/colleges/create', [CollegeController::class, 'create'])->name('coll
 
 // Route that will store the details of the new college
 Route::post('/colleges', [CollegeController::class, 'store'])->name('colleges.store');
+
+// Route that will delete a student 
+Route::delete('/colleges/{college}', [CollegeController::class, 'destroy'])->name('colleges.destroy');

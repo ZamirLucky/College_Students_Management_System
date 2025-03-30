@@ -34,4 +34,12 @@ class CollegeController extends Controller
         College::create($request->all());
         return redirect()->route('colleges.index')->with('message', 'College has been created successfully');
     }
+
+    /**
+     * delete a college
+    */
+    public function destroy(College $college){
+        $college->delete();
+        return redirect()->route('colleges.index')->with('message', 'College deleted successfully!');
+    }
 }
