@@ -56,4 +56,7 @@ Route::delete('/colleges/{college}', [CollegeController::class, 'destroy'])->nam
 Route::get('/colleges/{college}/edit', [CollegeController::class, 'edit'])->name('colleges.edit');
 
 // Route that will process the update form
-Route::put('colleges/{college}', [CollegeController::class, 'update'])->name('colleges.update');
+Route::put('/colleges/{college}', [CollegeController::class, 'update'])->name('colleges.update');
+
+//Route that will a college deatils
+Route::get('/colleges/{college}', [CollegeController::class, 'show'])->name('colleges.show');

@@ -19,7 +19,8 @@ class CollegeController extends Controller
      * create a new college
     */
     public function create(){
-        return view('colleges.create');
+        $college = new College;
+        return view('colleges.create', Compact('college'));
     }
 
     /**
@@ -61,5 +62,12 @@ class CollegeController extends Controller
 
         $college->update($request->all());
         return redirect()->route('colleges.index')->with('message', 'College updated succesfully');
+    }
+
+    /**
+     * Show a college deatils 
+    */
+    public function show(College $college){
+        return view('colleges.show', Compact('college'));
     }
 }

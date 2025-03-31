@@ -39,7 +39,7 @@
                                 <td>{{ $college->created_at->format('d/m/Y') }}</td>
                                 <td>{{ $college->updated_at->format('d/m/Y') }}</td>
                                 <td width="150">
-                                  <a href="" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                                  <a href="{{ route('colleges.show', $college->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
                                 <a href="{{ route('colleges.edit', $college->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
                                 <a href="{{ route('colleges.destroy', $college->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-type="college" data-id="{{ $college->id }}"><i class="fa fa-times"></i></a>
                                 </td>
