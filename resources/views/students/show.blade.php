@@ -73,13 +73,15 @@
                       <div class="form-group row mb-0">
                         <div class="col-md-9 offset-md-3">
                             <a href="{{ route('students.edit', $student->id) }}" class="btn btn-info">Edit</a>
-                            <a href="{{ route('students.destroy') }}" class="btn btn-outline-danger">Delete</a>
+                            <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-outline-danger btn-delete" data-type="student" data-id="{{ $student->id }}">Delete</a>
                             <a href="{{ route('students.index') }}" class="btn btn-outline-secondary">Cancel</a>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <!-- Hidden form for deletion -->
+                @include('partial._delete-form')
               </div>
             </div>
           </div>

@@ -47,27 +47,35 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @if ($students->count())
-                        @foreach ($students as $index => $student )
-                            <tr>
-                                <th scope="row">{{ $student->id }}</th>
-                                <td>{{ $student->name }}</td>
-                                <td>{{ $student->email }}</td>
-                                <td>{{ $student->phone }}</td>
-                                <td>{{ $student->dob->format('d/m/Y') }}</td>
-                                <td>{{ $student->created_at->format('d/m/Y') }}</td>
-                                <td>{{ $student->updated_at->format('d/m/Y') }}</td>
-                                <td>{{ $student->college->name }}</td>
-                                <td width="150">
-                                <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-type="student" data-id="{{ $student->id }}"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        <!-- Hidden form for deletion -->
-                        @include('partial._delete-form')
-                    @endif
+                  @if ($message = session('message'))
+                      <div class="alert alert-success">{{ $message }}</div>
+                      <script>
+                          setTimeout(function(){
+                              $('.alert').fadeOut('slow');
+                          }, 3000);
+                      </script>
+                  @endif
+                  @if ($students->count())
+                      @foreach ($students as $index => $student )
+                          <tr>
+                              <th scope="row">{{ $student->id }}</th>
+                              <td>{{ $student->name }}</td>
+                              <td>{{ $student->email }}</td>
+                              <td>{{ $student->phone }}</td>
+                              <td>{{ $student->dob->format('d/m/Y') }}</td>
+                              <td>{{ $student->created_at->format('d/m/Y') }}</td>
+                              <td>{{ $student->updated_at->format('d/m/Y') }}</td>
+                              <td>{{ $student->college->name }}</td>
+                              <td width="150">
+                              <a href="{{ route('students.show', $student->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                              <a href="{{ route('students.edit', $student->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                              <a href="{{ route('students.destroy', $student->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-type="student" data-id="{{ $student->id }}"><i class="fa fa-times"></i></a>
+                              </td>
+                          </tr>
+                      @endforeach
+                      <!-- Hidden form for deletion -->
+                      @include('partial._delete-form')
+                  @endif
                 </tbody>
               </table> 
 

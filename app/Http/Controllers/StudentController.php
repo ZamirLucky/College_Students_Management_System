@@ -58,17 +58,10 @@ class StudentController extends Controller
     */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|unique:students,email',
-            'phone' => 'required|string|regex:/^[0-9]{8}$/',
-            'dob'=> 'required|date|before:-15 years',
-            'college_id' => 'required|exists:colleges,id'
-        ],
-        [
-            'dob.before' => 'The date of birth must be at least 15 years ago.',
-            'phone.regex' => 'The phone number must be exactly 8 digits.'
-        ]);
+        $request->validate(
+            $this->getStudentValidationRules(),
+            $this->getStudentValidationMessages()
+        );
 
         
         Student::create($request->all());
@@ -85,25 +78,52 @@ class StudentController extends Controller
 
     // Process the update request
     public function update(Request $request, Student $student){
-        $request->validate([
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|unique:students,email,' . $student->id,
-            'phone' => 'required|string|regex:/^[0-9]{8}$/',
-            'dob' => 'required|date|before:-15 years',
-            'college_id' => 'required|exists:colleges,id'
-        ]);
+        $request->validate(
+            $this->getStudentValidationRules($student),
+            $this->getStudentValidationMessages()
+        );
 
         $student->update($request->all());
 
-        return redirect()->route('students.index')->with('message', 'Student updated successfully!');
+        return redirect()->route('students.index')->with('message', 'Student has been updated successfully!');
     }
 
     /**
      * delete a student
     */
     public function destroy(Student $student){
-       // $student_id = Student::find($student);
         $student->delete();
         return redirect()->route('students.index')->with('message', 'Student deleted successfully!');
+    }
+
+    /**
+     * Get the validation rules for student creation and update.
+     */
+    private function getStudentValidationRules($student = null)
+    {
+        return [
+            'name'       => 'required|string|max:100|min:3|regex:/^[a-zA-Z\s]+$/',
+            'email'      => $student 
+                            ? 'required|email|unique:students,email,' . $student->id 
+                            : 'required|email|unique:students,email',
+            'phone'      => 'required|string|regex:/^[0-9]{8}$/',
+            'dob'        => 'required|date|before:-15 years',
+            'college_id' => 'required|exists:colleges,id'
+        ];
+    }
+
+    private function getStudentValidationMessages()
+    {
+        return [
+            'dob.before'      => 'The date of birth must be at least 15 years ago.',
+            'phone.regex'     => 'The phone number must be exactly 8 digits.',
+            'name.regex'      => 'The name must only contain letters and spaces.',
+            'college_id.required' => 'The college field is required.',
+            'dob.required'    => 'The date of birth field is required.',
+            'name.max'        => 'The name may not be greater than 100 characters.',
+            'email.max'       => 'The email may not be greater than 255 characters.',
+            'name.min'        => 'The name must be at least 3 characters.',
+            'email.email'     => 'The email must be a valid email address.'
+        ];
     }
 }
