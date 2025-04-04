@@ -30,23 +30,31 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @if ($colleges->count())
-                        @foreach ($colleges as $college )
-                            <tr>
-                                <th scope="row">{{ $college->id }}</th>
-                                <td>{{ $college->name }}</td>
-                                <td>{{ $college->address }}</td>
-                                <td>{{ $college->created_at->format('d/m/Y') }}</td>
-                                <td>{{ $college->updated_at->format('d/m/Y') }}</td>
-                                <td width="150">
-                                  <a href="{{ route('colleges.show', $college->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
-                                <a href="{{ route('colleges.edit', $college->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
-                                <a href="{{ route('colleges.destroy', $college->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-type="college" data-id="{{ $college->id }}"><i class="fa fa-times"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        @include('partial._delete-form')
-                    @endif
+                  @if ($message = session('message'))
+                      <div class="alert alert-success">{{ $message }}</div>
+                      <script>
+                          setTimeout(function(){
+                              $('.alert').fadeOut('slow');
+                          }, 3000);
+                      </script>
+                  @endif
+                  @if ($colleges->count())
+                      @foreach ($colleges as $college )
+                          <tr>
+                              <th scope="row">{{ $college->id }}</th>
+                              <td>{{ $college->name }}</td>
+                              <td>{{ $college->address }}</td>
+                              <td>{{ $college->created_at->format('d/m/Y') }}</td>
+                              <td>{{ $college->updated_at->format('d/m/Y') }}</td>
+                              <td width="150">
+                                <a href="{{ route('colleges.show', $college->id) }}" class="btn btn-sm btn-circle btn-outline-info" title="Show"><i class="fa fa-eye"></i></a>
+                              <a href="{{ route('colleges.edit', $college->id) }}" class="btn btn-sm btn-circle btn-outline-secondary" title="Edit"><i class="fa fa-edit"></i></a>
+                              <a href="{{ route('colleges.destroy', $college->id) }}" class="btn btn-sm btn-circle btn-outline-danger btn-delete" title="Delete" data-type="college" data-id="{{ $college->id }}"><i class="fa fa-times"></i></a>
+                              </td>
+                          </tr>
+                      @endforeach
+                      @include('partial._delete-form')
+                  @endif
                 </tbody>
               </table> 
             </div>

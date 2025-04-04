@@ -66,6 +66,7 @@
                     </div>
                   </div>
                 </div>
+                @include('partial._delete-form')
               </div>
             </div>
           </div>
