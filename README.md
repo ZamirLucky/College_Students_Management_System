@@ -111,35 +111,46 @@ A Laravel-based web application for managing colleges and students with full CRU
 - Composer
 - MariaDB 10.6+ 
 
-## Screenshots
 
-### Colleges
+## Screenshots
 
 <img width="1217" height="548" alt="c" src="https://github.com/user-attachments/assets/27601663-d391-4dc4-b53b-33ddd02250b1" />
 
+
 <img width="1192" height="572" alt="c1" src="https://github.com/user-attachments/assets/8974bb1e-a9d3-44a1-b3d5-045e8d72cd49" />
+
 
 <img width="1180" height="508" alt="c2" src="https://github.com/user-attachments/assets/869818cd-9908-406f-b3a2-c10ddc9f5048" />
 
+
 <img width="1200" height="485" alt="c3" src="https://github.com/user-attachments/assets/e9d5cfa8-c994-46b5-8c9e-d6ffea1aebfc" />
+
 
 <img width="1208" height="634" alt="c4" src="https://github.com/user-attachments/assets/708cf67a-d073-4151-9057-806130ea9bc8" />
 
+
 <img width="1235" height="637" alt="c5" src="https://github.com/user-attachments/assets/d6b561cf-1933-4212-aae0-8b3c1278ffa2" />
+
 
 <img width="1228" height="592" alt="c6" src="https://github.com/user-attachments/assets/b223b74c-848a-40c8-b00c-216e2cdfbbb7" />
 
-### Students
+
+
 
 <img width="1215" height="558" alt="s" src="https://github.com/user-attachments/assets/3bf37a8c-d270-4451-9d6b-62496092904f" />
 
+
 <img width="1211" height="636" alt="s1" src="https://github.com/user-attachments/assets/50eacaa4-bd99-4fe1-9b1e-c004131edf01" />
+
 
 <img width="1229" height="556" alt="s2" src="https://github.com/user-attachments/assets/7f067de9-0e20-484a-85d6-2162a82c4651" />
 
+
 <img width="1217" height="522" alt="s3" src="https://github.com/user-attachments/assets/a2dca2a9-d479-42f9-a7fb-686c55379ce0" />
 
+
 <img width="1193" height="635" alt="s4" src="https://github.com/user-attachments/assets/3884fa5d-7bad-4b16-8cb0-b059e35f416d" />
+
 
 <img width="1231" height="624" alt="s5" src="https://github.com/user-attachments/assets/b1b47b78-896a-461d-8431-4c66a21d50b4" />
 
